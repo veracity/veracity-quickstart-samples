@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("101-developerStorage_manager")]
+[assembly: AssemblyTitle("101-developerStorage_client")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("101-developerStorage_manager")]
+[assembly: AssemblyProduct("101-developerStorage_client")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("13eecc92-b64f-439b-ab0b-094d06c1ac02")]
+[assembly: Guid("fa7957c5-96b4-40c8-8afe-c67dfbbc3643")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -5,7 +5,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Text;
 
-namespace _101_developerStorage
+namespace _101_developerStorage_manager
 {
     class Program
     {
