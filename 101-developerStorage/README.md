@@ -9,3 +9,5 @@ The sample is written in C# and use the Azure Storage Client Library for .NET. T
 - Create a stored access policy to manage signatures on a container's resources
 - Test the shared access signatures in a client application
 
+
+The client application will test the created containers and blobs, and show how to operate on them.
