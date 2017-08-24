@@ -1,1 +1,1 @@
-# veracity-quickstart-templates
+# veracity-quickstart-samples
