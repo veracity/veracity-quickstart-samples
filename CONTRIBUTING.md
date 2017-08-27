@@ -1,10 +1,53 @@
-# Contributing to Veracity samples
+# How to contribute to Veracity
 
-Thank you for your interest in contributing to Veracity samples!
+I'm really glad you're reading this, since we encurage developers to contribute to all and any code we publish on github.
 
-## Ways to contribute
+If you haven't already, visit our developers corner at ([Veracity DEveloper](https:\\developer.veraity.com). We want you working on things you're excited about.
 
-You can contribute to [Veracity samples](https://dev.veracity.com/documentation/samples/) in a few different ways:
+Here are some important resources:
 
-- Submit issues through [issue tracker](https://github.com/veracity/veracity-quickstart-samples/issues) on GitHub. We are actively monitoring the issues and improving our templates.
-- If you wish to make code changes to templates, or contribute something new, please follow the [GitHub Forks / Pull requests model](https://help.github.com/articles/fork-a-repo/): Fork the sample repo, make the change and propose it back by submitting a pull request.
+  * [Veracity Developers Documentation](https://developer.veracity.com\docs) tells you where we are,
+  * [Our roadmap](https://developers.veracity.com/blog) we post as soon as we get updates
+  * Bugs? [Issue tracker](https://github.com/veracity/veracity-quickstart-samples/issues) is where to report them on github code.
+
+
+## Submitting changes
+
+Please send a [GitHub Pull Request to vERACITY](https://github.com/veracity/veracity-quickstart-samples/pull/new/master) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, someone in our dev team will check out you code. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
+
+Always write a clear log message for your commits. One-line messages are fine for small changes, but bigger changes should look like this:
+
+    $ git commit -m "A brief summary of the commit
+    > 
+    > A paragraph describing what changed and its impact."
+
+
+	
+## Styleguides
+
+### Git Commit Messages
+
+* Use the present tense ("Add feature" not "Added feature")
+* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+* Limit the first line to 72 characters or less
+* Reference issues and pull requests liberally after the first line
+* Consider starting the commit message with an applicable emoji:
+    * :art: `:art:` when improving the format/structure of the code
+    * :racehorse: `:racehorse:` when improving performance
+    * :non-potable_water: `:non-potable_water:` when plugging memory leaks
+    * :memo: `:memo:` when writing docs
+    * :penguin: `:penguin:` when fixing something on Linux
+    * :apple: `:apple:` when fixing something on macOS
+    * :checkered_flag: `:checkered_flag:` when fixing something on Windows
+    * :bug: `:bug:` when fixing a bug
+    * :fire: `:fire:` when removing code or files
+    * :green_heart: `:green_heart:` when fixing the CI build
+    * :white_check_mark: `:white_check_mark:` when adding tests
+    * :lock: `:lock:` when dealing with security
+    * :arrow_up: `:arrow_up:` when upgrading dependencies
+    * :arrow_down: `:arrow_down:` when downgrading dependencies
+    * :shirt: `:shirt:` when removing linter warnings
+
+	
+Thanks,
+Brede Børhaug, Veracity Developers Toolbox
