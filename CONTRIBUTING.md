@@ -13,7 +13,7 @@ Here are some important resources:
 
 ## Submitting changes
 
-Please send a [GitHub Pull Request to vERACITY](https://github.com/veracity/veracity-quickstart-samples/pull/new/master) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, someone in our dev team will check out you code. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
+Please send a [GitHub Pull Request to Veracity](https://github.com/veracity/veracity-quickstart-samples/pull/new/master) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). When you send a pull request, someone in our dev team will check out you code. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
 
 Always write a clear log message for your commits. One-line messages are fine for small changes, but bigger changes should look like this:
 
