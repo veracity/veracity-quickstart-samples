@@ -1,0 +1,12 @@
+{
+  "name": "node-js-data-ingest",
+  "version": "0.0.0",
+  "description": "NodeJsDataIngest",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "azure-storage": "^2.5.0"
+  }
+}

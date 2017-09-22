@@ -1,0 +1,12 @@
+{
+  "name": "node-js-data-egest",
+  "version": "0.0.0",
+  "description": "NodeJsDataEgest",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "azure-storage": "^2.5.0"
+  }
+}
