@@ -7,7 +7,6 @@ If you haven't already, visit our developers corner at ([Veracity Developer](htt
 Here are some important resources:
 
   * [Veracity Developers Documentation](https://developer.veracity.com\docs) tells you where we are,
-  * [Our roadmap](https://developers.veracity.com/blog) we post as soon as we get updates
   * Bugs? [Issue tracker](https://github.com/veracity/veracity-quickstart-samples/issues) is where to report them on github code.
 
 
