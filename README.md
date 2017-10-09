@@ -6,6 +6,5 @@ All repos at github.com\Veracity are created and maintained by the Veracity Deve
 
 We hope you'll get involved! Read our Contributors' Guide for details.
 
-Mailing list: soon awailable...
-Development: [Roadmap](https:\\dev.veracity.com\blog).
-Visit our [Developer](https:\\developers.veracity.com\) site for more.
+
+Visit our [Developer](https:\\developer.veracity.com\) site for more.
