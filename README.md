@@ -7,4 +7,4 @@ All repos at github.com\Veracity are created and maintained by the Veracity Deve
 We hope you'll get involved! Read our Contributors' Guide for details.
 
 
-Visit our [Developer](https:\\developer.veracity.com\) site for more.
+Visit our [Veracity Developer](https:\\developer.veraity.com) site for more.
