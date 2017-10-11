@@ -49,4 +49,4 @@ Always write a clear log message for your commits. One-line messages are fine fo
 
 	
 Thanks,
-Brede Børhaug, Veracity Developers Toolbox
+Brede Børhaug, Manager Veracity Developers Community
