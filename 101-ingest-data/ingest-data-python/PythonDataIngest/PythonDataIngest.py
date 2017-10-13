@@ -1,4 +1,5 @@
 from azure.storage.blob import BlockBlobService
+from azure.storage.blob import ContentSettings
 
 # not sure about accountName, seems to be required.
 accountName = "<storage account name>"
