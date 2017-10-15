@@ -142,7 +142,7 @@
             "plan": {
                 "name": "standard-data-science-vm",
                 "publisher": "microsoft-ads",
-                "product": "standard-data-science-vm"
+                "product": "windows-data-science-vm"
             },
             "tags": {
                 "Application": "DataScience"
