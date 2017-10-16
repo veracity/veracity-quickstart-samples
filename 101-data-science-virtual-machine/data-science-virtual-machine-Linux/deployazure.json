@@ -20,7 +20,7 @@
         "adminUsername": {
             "type": "string"
         },
-		"adminPassword": {
+	"adminPassword": {
             "type": "securestring"
         }
     },
