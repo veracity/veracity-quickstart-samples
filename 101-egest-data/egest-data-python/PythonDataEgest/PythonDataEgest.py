@@ -12,14 +12,6 @@ try:
 except Exception as e:
     print("There was an error during SAS service creation. Details: {0}".format(e))
 
-# upload text blob to container
-blobName = "blobCreatedViaSAS.txt"
-print("Uploading {0} blob to {1} container...".format(blobName, containerName))
-try:
-    sas_service.create_blob_from_text(containerName, blobName, 'This Veracity blob was created with a shared access signature granting write permissions to the container.')
-except Exception as e:
-    print("There was an error during blob uploading. Details: {0}".format(e))
-
 # list blobs in container
 print("Blobs in container: ")
 try:
@@ -29,7 +21,15 @@ try:
 except Exception as e:
     print("There was an error during blobs listing. Details: {0}".format(e))
 
-# read blob from container
+# download blob to blob
+print("Download blob to path")
+try:
+    sas_service.get_blob_to_path(containerName, blobName, 'downloadedName.csv')
+except Exception as e:
+    print("There was an error during blob download. Details: {0}".format(e))
+
+
+# read text from blob
 print("")
 print("{0} blob content: ".format(blobName))
 try:
@@ -37,13 +37,3 @@ try:
     print(blob_text.content)
 except Exception as e:
     print("There was an error during blob reading. Details: {0}".format(e))
-
-# delete blob
-print("")
-print("Deleting {0} blob...".format(blobName))
-try:
-    sas_service.delete_blob(containerName, blobName)
-except Exception as e:
-    print("There was an error during deletion of blob. Details: {0}".format(e))
-
-print("Blob {0} deleted.".format(blobName))

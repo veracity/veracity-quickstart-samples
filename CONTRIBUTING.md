@@ -2,12 +2,11 @@
 
 I'm really glad you're reading this, since we encurage developers to contribute to all and any code we publish on github.
 
-If you haven't already, visit our developers corner at ([Veracity Developer](https:\\developer.veraity.com). We want you working on things you're excited about.
+If you haven't already, visit our developers corner at [Veracity Developer](https:\\developer.veraity.com). We want you working on things you're excited about.
 
 Here are some important resources:
 
   * [Veracity Developers Documentation](https://developer.veracity.com\docs) tells you where we are,
-  * [Our roadmap](https://developers.veracity.com/blog) we post as soon as we get updates
   * Bugs? [Issue tracker](https://github.com/veracity/veracity-quickstart-samples/issues) is where to report them on github code.
 
 
@@ -50,4 +49,4 @@ Always write a clear log message for your commits. One-line messages are fine fo
 
 	
 Thanks,
-Brede Børhaug, Veracity Developers Toolbox
+Brede Børhaug, Manager Veracity Developers Community
