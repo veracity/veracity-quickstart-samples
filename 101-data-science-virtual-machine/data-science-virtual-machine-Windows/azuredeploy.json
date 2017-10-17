@@ -25,7 +25,7 @@
         }
     },
     "variables": {
-        "location": "[resourceGroup().location]",
+	    "location": "[resourceGroup().location]",
 		"virtualNetworkName": "[concat(resourceGroup().name, '-vnet')]",
 		"networkSecurityGroupName": "[concat(parameters('virtualMachineName'), '-nsg')]",
 		"networkInterfaceName": "[concat(parameters('virtualMachineName'), '007')]",
@@ -55,7 +55,10 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachineName')]",
                     "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
+                    "adminPassword": "[parameters('adminPassword')]",
+                    "windowsConfiguration": {
+                        "provisionVmAgent": "true"
+                    }
                 },
                 "hardwareProfile": {
                     "vmSize": "[parameters('virtualMachineSize')]"
@@ -63,8 +66,8 @@
                 "storageProfile": {
                     "imageReference": {
                         "publisher": "microsoft-ads",
-                        "offer": "linux-data-science-vm-ubuntu",
-                        "sku": "linuxdsvmubuntu",
+                        "offer": "windows-data-science-vm",
+                        "sku": "windows2016",
                         "version": "latest"
                     },
                     "osDisk": {
@@ -73,15 +76,7 @@
                             "storageAccountType": "Premium_LRS"
                         }
                     },
-                    "dataDisks": [
-                        {
-                            "createOption": "fromImage",
-                            "lun": 0,
-                            "managedDisk": {
-                                "storageAccountType": "Premium_LRS"
-                            }
-                        }
-                    ]
+                    "dataDisks": []
                 },
                 "networkProfile": {
                     "networkInterfaces": [
@@ -98,9 +93,9 @@
                 }
             },
             "plan": {
-                "name": "linuxdsvmubuntu",
+                "name": "windows2016",
                 "publisher": "microsoft-ads",
-                "product": "linux-data-science-vm-ubuntu"
+                "product": "windows-data-science-vm"
             }
         },
         {
@@ -183,7 +178,7 @@
             "properties": {
                 "securityRules": [
                     {
-                        "name": "JupyterHub",
+                        "name": "Jupyter",
                         "properties": {
                             "priority": 1010,
                             "protocol": "TCP",
@@ -192,11 +187,11 @@
                             "sourceAddressPrefix": "*",
                             "sourcePortRange": "*",
                             "destinationAddressPrefix": "*",
-                            "destinationPortRange": "8000"
+                            "destinationPortRange": "9999"
                         }
                     },
                     {
-                        "name": "RStudioServer",
+                        "name": "MSSQL",
                         "properties": {
                             "priority": 1020,
                             "protocol": "TCP",
@@ -205,11 +200,11 @@
                             "sourceAddressPrefix": "*",
                             "sourcePortRange": "*",
                             "destinationAddressPrefix": "*",
-                            "destinationPortRange": "8787"
+                            "destinationPortRange": "1433"
                         }
                     },
                     {
-                        "name": "default-allow-ssh",
+                        "name": "default-allow-rdp",
                         "properties": {
                             "priority": 1030,
                             "protocol": "TCP",
@@ -218,7 +213,7 @@
                             "sourceAddressPrefix": "*",
                             "sourcePortRange": "*",
                             "destinationAddressPrefix": "*",
-                            "destinationPortRange": "22"
+                            "destinationPortRange": "3389"
                         }
                     }
                 ]
