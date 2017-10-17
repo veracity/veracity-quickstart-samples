@@ -3,26 +3,38 @@ using System.Threading.Tasks;
 
 namespace veracity_api_sample
 {
+    /// <summary>
+    /// Test class showing step by step process of using Data and Provisioning API
+    /// </summary>
     public class Program
     {
         static void Main(string[] args)
         {
             // Subscription key provide by Veracity portal
-            const string subscriptionKey = "< your key goes here >";
-            // Bearer key, temporarly stored here.
-            const string bearerKey = "< your bearer key goes here >";
+            const string subscriptionKey = "< subscription key goes here >";
             // Base url to Data API service
             const string baseDataApiUrl = "https://< base ulr goes here >/DataAPI/api/";
             // Base url to Provisioning API service
             const string baseProvisioningApiUrl = "https://< base url goes here >/provisioningAPI/api/";
 
+            // sign with AAD B2C authentication to get bearer key
+            var signTask = AdB2C.SignIn();
+            signTask.Wait();
+            var signTaskResult = signTask.Result;
+            if (signTaskResult == null)
+            {
+                Console.WriteLine("An error occured while requesting access token. Terminating.");
+                Console.ReadLine();
+                return;
+            }
+            var bearerKey = signTaskResult.AccessToken;
             // if you don't have any container created yet, below commented code is for you.
             // notice that provisioning of container can take up to 15 minutes so all next code will fail until container is created.
             //var provisionResults = CreateContainer(bearerKey, subscriptionKey, baseProvisioningApiUrl, <location from StorageLocations>, <container name, optional>);
             //provisionResults.Wait();
 
             // if container is created below code is for you.
-            // if you don't have container yet, below code will retuen errors
+            // if you don't have container yet, below code will return errors
             var results = ShareContainerUsingApi(bearerKey, subscriptionKey, baseDataApiUrl);
             results.Wait();
             // Hold the console
@@ -127,7 +139,7 @@ namespace veracity_api_sample
                 return;
             }
             Console.WriteLine("Accesses for resource:");
-            foreach(var access in accesses.Item2.Results)
+            foreach (var access in accesses.Item2.Results)
                 Console.WriteLine($"Resource id: {access.ResourceId}, OwnerId: {access.OwnerId}, UserId: {access.UserId}");
         }
     }
