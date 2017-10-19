@@ -1,0 +1,58 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "location": "[resourceGroup().location]",
+		"newStorageAccountName": "[concat(parameters('name'), 'storage')]",
+		"newStorageAccountTier": "Standard_LRS",
+		"planName": "[concat(resourceGroup().name, 'Plan')]",
+		"skuName": "S1",
+		"skuTier": "Standard",
+		"skuCapacity": 1,
+		"workspaceApiVersion": "2016-04-01",
+		"commitmentPlanApiVersion": "2016-05-01-preview",
+		"storageApiVersion": "2016-01-01",
+		"userStorageAccountId": "[concat(subscription().id, '/resourcegroups/', resourceGroup().name, '/providers/Microsoft.Storage/storageAccounts/', variables('newStorageAccountName'))]"
+    },
+    "resources": [
+        {
+            "apiVersion": "[variables('workspaceApiVersion')]",
+            "name": "[parameters('name')]",
+            "location": "[variables('location')]",
+            "type": "Microsoft.MachineLearning/workspaces",
+            "properties": {
+                "userStorageAccountId": "[variables('userStorageAccountId')]"
+            },
+            "dependsOn": [
+                "[variables('userStorageAccountId')]"
+            ]
+        },
+        {
+            "apiVersion": "[variables('storageApiVersion')]",
+            "name": "[variables('newStorageAccountName')]",
+            "location": "[variables('location')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "[variables('newStorageAccountTier')]"
+            },
+            "kind": "Storage"
+        },
+        {
+            "apiVersion": "[variables('commitmentPlanApiVersion')]",
+            "name": "[variables('planName')]",
+            "type": "Microsoft.MachineLearning/commitmentPlans",
+            "location": "[variables('location')]",
+            "sku": {
+                "name": "[variables('skuName')]",
+                "tier": "[variables('skuTier')]",
+                "capacity": "[variables('skuCapacity')]"
+            },
+            "properties": {}
+        }
+    ]
+}
