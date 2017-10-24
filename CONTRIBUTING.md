@@ -2,7 +2,7 @@
 
 I'm really glad you're reading this, since we encurage developers to contribute to all and any code we publish on github.
 
-If you haven't already, visit our developers corner at [Veracity Developer](https:\\developer.veraity.com). We want you working on things you're excited about.
+If you haven't already, visit our developers corner at [Veracity Developer](https:\\developer.veracity.com). We want you working on things you're excited about.
 
 Here are some important resources:
 
