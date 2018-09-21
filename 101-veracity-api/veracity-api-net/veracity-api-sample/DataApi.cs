@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using Newtonsoft.Json;
+using veracity_api_sample.Models;
 
 namespace veracity_api_sample
 {
@@ -35,7 +36,7 @@ namespace veracity_api_sample
         /// <returns>Tuple of error string and User object. Error string is empty if operation is successfull.</returns>
         public async Task<Tuple<string, User>> RequestCurrentUser()
         {
-            var uri = $"{_baseDataApiUrl}users/me?";
+            var uri = $"{_baseDataApiUrl}users/me";
 
             var response = await _httpClient.GetAsync(uri);
             var responseContent = await response.Content.ReadAsStringAsync();
@@ -93,19 +94,19 @@ namespace veracity_api_sample
         /// <param name="shared">true if shared resources should be included in result collection</param>
         /// <param name="owned">true if owned resources should be included in result collection</param>
         /// <returns>Tuple of error string and Resources object. Error string is empty if operation is successfull.</returns>
-        public async Task<Tuple<string, Resources>> RequestAllResources(bool shared, bool owned)
+        public async Task<Tuple<string, List<Resource>>> RequestAllResources(bool shared, bool owned)
         {
             var queryString = HttpUtility.ParseQueryString(string.Empty);
             queryString["shared"] = shared.ToString();
             queryString["owned"] = owned.ToString();
 
-            var uri = $"{_baseDataApiUrl}resources?{queryString}";
+            var uri = $"{_baseDataApiUrl}";
 
             var response = await _httpClient.GetAsync(uri);
             var responseContent = await response.Content.ReadAsStringAsync();
             return response.IsSuccessStatusCode
-                ? new Tuple<string, Resources>("", JsonConvert.DeserializeObject<Resources>(responseContent))
-                : new Tuple<string, Resources>(responseContent, null);
+                ? new Tuple<string, List<Resource>>("", JsonConvert.DeserializeObject<List<Resource>>(responseContent))
+                : new Tuple<string, List<Resource>>(responseContent, null);
         }
         /// <summary>
         /// Returns collection of current accesses to resource.
@@ -164,123 +165,5 @@ namespace veracity_api_sample
                 ? new Tuple<string, SasData>("", JsonConvert.DeserializeObject<SasData>(responseContent))
                 : new Tuple<string, SasData>(responseContent, null);
         }
-    }
-    /// <summary>
-    /// Json structure for User
-    /// </summary>
-    public class User
-    {
-        public string UserId { get; set; }
-        public string CompanyId { get; set; }
-        public string Role { get; set; }
-    }
-    /// <summary>
-    /// Json structure for Company
-    /// </summary>
-    public class Company
-    {
-        public string CompanyId { get; set; }
-        public string AzureId { get; set; }
-    }
-    /// <summary>
-    /// Json structure for StorageKeyTemplate
-    /// </summary>
-    public class StorageKeyTemplate
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public int TotalHours { get; set; }
-        public bool IsSystemKey { get; set; }
-        public string Description { get; set; }
-        public bool Attribute1 { get; set; }
-        public bool Attribute2 { get; set; }
-        public bool Attribute3 { get; set; }
-        public bool Attribute4 { get; set; }
-    }
-    /// <summary>
-    /// Json structure for Resources. Owned and Shared
-    /// </summary>
-    public class Resources
-    {
-        public List<Resource> OwnedResources { get; set; }
-        public List<SharedResource> SharedResources { get; set; }
-    }
-    /// <summary>
-    /// Json structure for single Resource
-    /// </summary>
-    public class Resource
-    {
-        public string ResourceId { get; set; }
-        public string ResourceName { get; set; }
-        public string ResourceUrl { get; set; }
-        public string LastModifiedUTC { get; set; }
-        public string OwnerId { get; set; }
-        public string ConsumerName { get; set; }
-        public string ResourceType { get; set; }
-    }
-    /// <summary>
-    /// Json structure for Shared Resource
-    /// </summary>
-    public class SharedResource
-    {
-        public Resource StorageItem { get; set; }
-        public string AccessDescription { get; set; }
-        public bool AccessKeyCreated { get; set; }
-        public string AccessKeyEndDateUTC { get; set; }
-        public string AccessKeyTemplateId { get; set; }
-        public string AccessSharingId { get; set; }
-        public bool AutoRefreshed { get; set; }
-    }
-    /// <summary>
-    /// Json structure for Accesses result
-    /// </summary>
-    public class Accesses
-    {
-        public List<Access> Results { get; set; }
-        public int Page { get; set; }
-        public int ResultsPerPage { get; set; }
-        public int TotalPages { get; set; }
-        public int TotalResults { get; set; }
-    }
-    /// <summary>
-    /// Json structure for single Access data
-    /// </summary>
-    public class Access
-    {
-        public string ProviderEmail { get; set; }
-        public string UserId { get; set; }
-        public string OwnerId { get; set; }
-        public string AccessSharingId { get; set; }
-        public bool KeyCreated { get; set; }
-        public bool AutoRefreshed { get; set; }
-        public string KeyCreatedTimeUTC { get; set; }
-        public string KeyExpiryTimeUTC { get; set; }
-        public string ResourceType { get; set; }
-        public int AccessHours { get; set; }
-        public string AccessKeyTemplateId { get; set; }
-        public bool Attribute1 { get; set; }
-        public bool Attribute2 { get; set; }
-        public bool Attribute3 { get; set; }
-        public bool Attribute4 { get; set; }
-        public string ResourceId { get; set; }
-    }
-    /// <summary>
-    /// Json structure for SAS token info data
-    /// </summary>
-    public class SasData
-    {
-        public string SasKey { get; set; }
-        public string SasUri { get; set; }
-        public string FillKey { get; set; }
-        public string SasKeyExpiryTimeUTC { get; set; }
-        public bool IsKeyExpired { get; set; }
-        public bool AutoRefreshed { get; set; }
-    }
-    /// <summary>
-    /// Json structure for shared access response
-    /// </summary>
-    public class ShareAccessResponse
-    {
-        public string AccessSharingId { get; set; }
     }
 }
