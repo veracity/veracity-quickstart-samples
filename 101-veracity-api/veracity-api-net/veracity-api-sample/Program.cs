@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using veracity_api_sample.Enums;
 
 namespace veracity_api_sample
 {
@@ -101,15 +103,15 @@ namespace veracity_api_sample
                 Console.WriteLine($"Could not get user resources. Error: {resources.Item1}");
                 return;
             }
-            if (resources.Item2.OwnedResources.Count == 0)
+            if (resources.Item2.Count == 0)
             {
                 Console.WriteLine(
                     "Could not find any resource. Please create one using ProvisioningAPI. Notice that provisioning of container can take up to 15 minutes.");
                 return;
             }
-            Console.WriteLine($"Owned resource: {resources.Item2.OwnedResources[0]}");
-
-            var resourceToShare = resources.Item2.OwnedResources[0].ResourceId;
+            
+            var resource = resources.Item2.FirstOrDefault(resource1 => resource1.AccessLevel == AccessLevel.Owner);
+            var resourceToShare = resource?.Id;
 
             // share access to found resource with current user.
             var share = await api.ShareAccess(resourceToShare, true, userId, templateId);
