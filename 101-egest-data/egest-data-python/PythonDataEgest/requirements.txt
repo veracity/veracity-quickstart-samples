@@ -10,7 +10,7 @@ idna==2.6
 pip==9.0.1
 pycparser==2.18
 python-dateutil==2.6.1
-requests==2.18.4
+requests>=2.20.0
 setuptools==28.8.0
 six==1.11.0
 urllib3==1.22
