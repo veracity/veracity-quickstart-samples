@@ -1,1 +1,0 @@
-Azure AD B2C - information
