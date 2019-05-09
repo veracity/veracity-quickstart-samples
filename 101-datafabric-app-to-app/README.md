@@ -7,8 +7,9 @@ In this sample we do the following:
 - Call /api/1/application to get our own application profile
 - Call /api/1/resources to get list of containers shared with our application
 
+
 # Requirements
-Your service or application must have been onboarded in our identity provider and must be registered as an applicaiton in Veracity Data Fabric, this can be done through the onboarding process, if you require further info how to set this up, please contact [our support](https://services.veracity.com/form/SupportAnonymous)
+Your service or application must have been onboarded in our identity provider and must be registered as an applicaiton in Veracity Data Fabric, this can be done through the onboarding process, if you require further info how to set this up, please contact [our support](https://services.veracity.com/form/SupportAnonymous), once onboarded the following should be available to you (and is required for app-to-app).
 
 ```
 ClientId - Application ID
