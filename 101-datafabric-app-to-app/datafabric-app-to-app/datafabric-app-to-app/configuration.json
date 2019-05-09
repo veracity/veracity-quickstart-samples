@@ -1,0 +1,10 @@
+{
+  "DataClientOptions": {
+    "AadTenantId": "",
+    "ResourceUrl": "",
+    "ClientId": "",
+    "ClientSecret": "",
+    "Environment": "",
+    "SubscriptionKey": ""
+  }
+}
