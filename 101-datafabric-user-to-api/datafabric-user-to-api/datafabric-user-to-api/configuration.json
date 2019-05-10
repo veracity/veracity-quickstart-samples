@@ -1,0 +1,7 @@
+{
+  "DataClientOptions": {
+    "AccessToken": "Bearer <access token here>",
+    "SubscriptionKey": "<subscription key here>",
+    "Env":  "Test" 
+  }
+}
