@@ -1,0 +1,8 @@
+{
+  "VeracityDataApiOptions": {
+    "AccessToken": "Bearer <Your access Token>",
+    "SubscriptionKey": "<Your Subscription Key>",
+    "BaseUrl": "https://api-test.veracity.com/veracity/datafabric/data/api/1/"
+  },
+  "UserIds": "UserId1, UserId2, UserId3"
+}
